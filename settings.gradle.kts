@@ -6,4 +6,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "RandomizeWear"
-include ':mobile'
+include(":mobile")
