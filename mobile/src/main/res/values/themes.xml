@@ -1,12 +1,12 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="Theme.RandomizeWear" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="Theme.RandomizeWear" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primaryColor</item>
-        <item name="colorPrimaryVariant">@color/primaryDarkColor</item>
-        <item name="colorOnPrimary">@color/primaryTextColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryDark</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>
