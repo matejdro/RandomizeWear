@@ -31,5 +31,6 @@ dependencies {
 
     implementation(libs.androidx.core)
     implementation(libs.androidx.wear)
+    implementation(libs.logcat)
     implementation(libs.playServices.wearable)
 }
