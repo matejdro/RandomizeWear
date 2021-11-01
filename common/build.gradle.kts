@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
+    id("com.squareup.wire")
 }
 
 android {
@@ -21,5 +22,10 @@ android {
     }
 }
 
+wire {
+    kotlin {}
+}
+
 dependencies {
+    api(libs.wire.runtime)
 }

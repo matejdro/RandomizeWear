@@ -5,6 +5,7 @@ androidx-core = "1.6.0"
 androidx-wear = "1.2.0"
 kotlin = "1.5.31"
 playServices-wearable = "17.1.0"
+wire = "3.7.0"
 
 [libraries]
 androidPluginGradle = { module = "com.android.tools.build:gradle", version.ref = "androidPluginGradle" }
@@ -13,3 +14,5 @@ androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "a
 androidx-wear = { module = "androidx.wear:wear", version.ref = "androidx.wear" }
 kotlin-pluginGradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 playServices-wearable = { module = "com.google.android.gms:play-services-wearable", version.ref = "playServices.wearable" }
+wire-runtime = { module = "com.squareup.wire:wire-runtime", version.ref = "wire" }
+wire-pluginGradle = { module = "com.squareup.wire:wire-gradle-plugin", version.ref = "wire" }

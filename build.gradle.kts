@@ -6,5 +6,6 @@ buildscript {
     dependencies {
         classpath(libs.androidPluginGradle)
         classpath(libs.kotlin.pluginGradle)
+        classpath(libs.wire.pluginGradle)
     }
 }
