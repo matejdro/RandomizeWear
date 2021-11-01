@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "RandomizeWear"
 include(":mobile")
 include(":common")
+include(":wear")
