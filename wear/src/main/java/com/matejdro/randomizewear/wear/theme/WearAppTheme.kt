@@ -1,9 +1,12 @@
 package com.matejdro.randomizewear.wear.theme
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.wear.compose.material.Colors
 import androidx.wear.compose.material.MaterialTheme
 import com.matejdro.randomizewear.common.AppColors
+import com.matejdro.randomizewear.wear.util.LocalRotaryEventDispatcher
+import com.matejdro.randomizewear.wear.util.RotaryEventDispatcher
 
 
 @Composable
@@ -26,3 +29,12 @@ private val colorPalette = Colors(
    onSecondary = AppColors.onPrimary,
    onError = AppColors.onError
 )
+
+@Composable
+fun PreviewTheme(content: @Composable () -> Unit) {
+   CompositionLocalProvider(LocalRotaryEventDispatcher provides RotaryEventDispatcher()) {
+      WearAppTheme {
+         content()
+      }
+   }
+}

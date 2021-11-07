@@ -9,4 +9,7 @@ object AppColors {
    val error = Color(0xffef5350)
    val onPrimary = Color.Black
    val onError = Color.Black
+   val surface = Color.Black
+   val onSurface = Color.White
+
 }

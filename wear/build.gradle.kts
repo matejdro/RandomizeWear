@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    kotlin("kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -30,20 +32,34 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
+
+        freeCompilerArgs = freeCompilerArgs + "-Xopt-in=androidx.wear.compose.material.ExperimentalWearMaterialApi"
     }
 }
 
+kapt {
+    correctErrorTypes = true
+    useBuildCache = true
+}
 
 dependencies {
     implementation(project(":common"))
 
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.compiler)
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.ui.tooling)
+    implementation(libs.androidx.lifecycle.viewModel.compose)
     implementation(libs.androidx.compose.wear.foundation)
     implementation(libs.androidx.compose.wear.material)
     implementation(libs.androidx.compose.wear.navigation)
     implementation(libs.androidx.core)
     implementation(libs.androidx.wear)
+    implementation(libs.dagger.hilt)
+    implementation(libs.dagger.hilt.navigationCompose)
+    implementation(libs.kotlin.coroutines)
     implementation(libs.logcat)
     implementation(libs.playServices.wearable)
+
+    kapt(libs.dagger.hilt.compiler)
 }
