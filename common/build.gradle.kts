@@ -28,4 +28,6 @@ wire {
 
 dependencies {
     api(libs.wire.runtime)
+
+    implementation(libs.androidx.compose.ui)
 }
