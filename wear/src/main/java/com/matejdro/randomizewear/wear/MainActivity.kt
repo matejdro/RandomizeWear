@@ -1,14 +1,16 @@
 package com.matejdro.randomizewear.wear
 
-import android.app.Activity
 import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.wear.compose.material.Text
 
-class MainActivity : Activity() {
-
-
+class MainActivity : ComponentActivity() {
    override fun onCreate(savedInstanceState: Bundle?) {
       super.onCreate(savedInstanceState)
 
-      setContentView(R.layout.activity_main)
+      setContent {
+         Text("Hello World")
+      }
    }
 }

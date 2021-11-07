@@ -15,9 +15,17 @@ android {
         versionName = "1.0"
     }
 
+    buildFeatures {
+        compose = true
+    }
+
     compileOptions {
         sourceCompatibility(JavaVersion.VERSION_1_8)
         targetCompatibility(JavaVersion.VERSION_1_8)
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.androidx.compose.asProvider().get()
     }
 
     kotlinOptions {
@@ -29,6 +37,11 @@ android {
 dependencies {
     implementation(project(":common"))
 
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.compose.compiler)
+    implementation(libs.androidx.compose.wear.foundation)
+    implementation(libs.androidx.compose.wear.material)
+    implementation(libs.androidx.compose.wear.navigation)
     implementation(libs.androidx.core)
     implementation(libs.androidx.wear)
     implementation(libs.logcat)
