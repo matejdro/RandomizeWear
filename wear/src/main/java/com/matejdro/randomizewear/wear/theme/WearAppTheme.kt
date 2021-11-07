@@ -22,11 +22,11 @@ fun WearAppTheme(
 private val colorPalette = Colors(
    primary = AppColors.primary,
    primaryVariant = AppColors.primaryDark,
-   secondary = AppColors.primary,
-   secondaryVariant = AppColors.primaryDark,
+   secondary = AppColors.secondary,
+   secondaryVariant = AppColors.secondaryDark,
    error = AppColors.error,
    onPrimary = AppColors.onPrimary,
-   onSecondary = AppColors.onPrimary,
+   onSecondary = AppColors.onSecondary,
    onError = AppColors.onError
 )
 

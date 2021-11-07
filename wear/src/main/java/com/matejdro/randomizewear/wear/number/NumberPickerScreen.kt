@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.wear.compose.material.Button
 import androidx.wear.compose.material.ButtonDefaults
+import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
 import com.matejdro.randomizewear.common.util.collectAsStateWithLifecycle
 import com.matejdro.randomizewear.wear.R
@@ -96,7 +97,10 @@ private fun RowScope.NumberScrollButton(active: Boolean, currentValue: Int, onCl
          .padding(8.dp)
          .height(32.dp)
          .width(32.dp),
-      colors = if (active) ButtonDefaults.primaryButtonColors() else ButtonDefaults.secondaryButtonColors()
+      colors = if (active)
+         ButtonDefaults.primaryButtonColors(backgroundColor = MaterialTheme.colors.secondary)
+      else
+         ButtonDefaults.secondaryButtonColors()
    ) {
       Text(
          text = currentValue.toString(),
