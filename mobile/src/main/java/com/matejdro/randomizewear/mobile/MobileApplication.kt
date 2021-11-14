@@ -1,4 +1,4 @@
-package com.matejdro.randomizewear
+package com.matejdro.randomizewear.mobile
 
 import android.app.Application
 import logcat.AndroidLogcatLogger
