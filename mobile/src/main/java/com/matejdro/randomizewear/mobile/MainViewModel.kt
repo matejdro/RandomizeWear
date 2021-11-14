@@ -18,7 +18,7 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
    private val settingsRepository: SettingsRepository,
    private val wearPusher: WearPusher,
-   private val contentResolver: ContentResolver
+   private val contentResolver: ContentResolver,
 ) : ViewModel() {
    private val _lastSelectedRandomListsFolder = MutableStateFlow<Uri?>(null)
    val lastSelectedRandomListsFolder: StateFlow<Uri?>

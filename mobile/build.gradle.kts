@@ -53,6 +53,8 @@ dependencies {
    implementation(libs.androidx.compose.ui)
    implementation(libs.androidx.compose.ui.tooling)
    implementation(libs.androidx.datastore)
+   implementation(libs.kotlin.coroutines.playServices)
+   implementation(libs.playServices.wearable)
    implementation(libs.dagger.hilt)
    implementation(libs.logcat)
    implementation(libs.wire.runtime)

@@ -9,7 +9,7 @@ android {
     compileSdk = 31
 
     defaultConfig {
-        applicationId = "com.matejdro.randomizewear.wear"
+        applicationId = "com.matejdro.randomizewear"
         minSdk = 26
         targetSdk = 31
 
@@ -34,6 +34,9 @@ android {
         jvmTarget = "1.8"
 
         freeCompilerArgs = freeCompilerArgs + "-Xopt-in=androidx.wear.compose.material.ExperimentalWearMaterialApi"
+        freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+        freeCompilerArgs = freeCompilerArgs + "-Xopt-in=androidx.compose.animation.ExperimentalAnimationApi"
+        freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
     }
 }
 
@@ -58,6 +61,7 @@ dependencies {
     implementation(libs.dagger.hilt)
     implementation(libs.dagger.hilt.navigationCompose)
     implementation(libs.kotlin.coroutines)
+    implementation(libs.kotlin.coroutines.playServices)
     implementation(libs.logcat)
     implementation(libs.playServices.wearable)
 

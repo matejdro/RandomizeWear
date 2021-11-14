@@ -5,6 +5,8 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.core.DataStoreFactory
 import androidx.datastore.dataStoreFile
+import com.google.android.gms.wearable.DataClient
+import com.google.android.gms.wearable.Wearable
 import com.matejdro.randomizewear.mobile.data.SettingsSerializer
 import com.matejdro.randomizewear.models.Settings
 import dagger.Module
@@ -24,5 +26,10 @@ class MobileModule {
    @Provides
    fun provideContentResolver(@ApplicationContext context: Context): ContentResolver {
       return context.contentResolver
+   }
+
+   @Provides
+   fun provideDataClient(@ApplicationContext context: Context): DataClient {
+      return Wearable.getDataClient(context)
    }
 }
