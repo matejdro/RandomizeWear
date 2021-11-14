@@ -56,6 +56,7 @@ dependencies {
     implementation(libs.androidx.compose.wear.foundation)
     implementation(libs.androidx.compose.wear.material)
     implementation(libs.androidx.compose.wear.navigation)
+    implementation(libs.androidx.datastore)
     implementation(libs.androidx.core)
     implementation(libs.androidx.wear)
     implementation(libs.dagger.hilt)
