@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option java_package = "com.matejdro.randomizewear.models";
+
+message RandomLists {
+  repeated RandomList lists = 1;
+}
+
+message RandomList {
+  string name = 1;
+  repeated string entries = 2;
+}

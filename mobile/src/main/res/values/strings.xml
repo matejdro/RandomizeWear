@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">RandomizeWear</string>
     <string name="select_folder">Select lists folder</string>
+    <string name="reload">Reload random lists</string>
 </resources>

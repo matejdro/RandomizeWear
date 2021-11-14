@@ -1,5 +1,6 @@
 package com.matejdro.randomizewear.mobile.di
 
+import android.content.ContentResolver
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.core.DataStoreFactory
@@ -18,5 +19,10 @@ class MobileModule {
    @Provides
    fun provideSettingsDataStore(@ApplicationContext context: Context): DataStore<Settings> {
       return DataStoreFactory.create(SettingsSerializer, produceFile = { context.dataStoreFile("settings.pb") })
+   }
+
+   @Provides
+   fun provideContentResolver(@ApplicationContext context: Context): ContentResolver {
+      return context.contentResolver
    }
 }
