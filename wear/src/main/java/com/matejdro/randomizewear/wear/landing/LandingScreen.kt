@@ -2,6 +2,7 @@ package com.matejdro.randomizewear.wear.landing
 
 import android.content.res.Configuration
 import android.graphics.Color
+import androidx.activity.compose.BackHandler
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
@@ -51,6 +52,8 @@ private fun LandingScreenUi(
    randomListNames: List<String>,
    displayedPopupText: String?
 ) {
+   BackHandler(enabled = displayedPopupText != null) { closePopup() }
+
    LazyColumn(
       Modifier.fillMaxSize(),
       verticalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterVertically),
