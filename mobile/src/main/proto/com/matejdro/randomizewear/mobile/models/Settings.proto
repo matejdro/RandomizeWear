@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+option java_package = "com.matejdro.randomizewear.models";
+
+message Settings {
+  optional string folderUri = 1;
+}

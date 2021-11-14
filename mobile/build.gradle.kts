@@ -3,6 +3,7 @@ plugins {
    kotlin("android")
    kotlin("kapt")
    id("dagger.hilt.android.plugin")
+   id("com.squareup.wire")
 }
 
 android {
@@ -33,6 +34,10 @@ android {
    kotlinOptions {
       jvmTarget = "1.8"
    }
+
+   wire {
+      kotlin {}
+   }
 }
 
 dependencies {
@@ -45,8 +50,10 @@ dependencies {
    implementation(libs.androidx.compose.foundation)
    implementation(libs.androidx.compose.ui)
    implementation(libs.androidx.compose.ui.tooling)
+   implementation(libs.androidx.datastore)
    implementation(libs.dagger.hilt)
    implementation(libs.logcat)
+   implementation(libs.wire.runtime)
 
    kapt(libs.dagger.hilt.compiler)
 }
