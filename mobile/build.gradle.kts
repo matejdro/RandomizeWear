@@ -35,6 +35,7 @@ android {
       jvmTarget = "1.8"
 
       freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.ExperimentalStdlibApi"
+      freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
    }
 
    wire {
