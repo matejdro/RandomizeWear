@@ -42,7 +42,7 @@ class WearPusher @Inject constructor(
             ),
             "${DocumentsContract.Document.COLUMN_MIME_TYPE} = ?",
             arrayOf("text/plain"),
-            "${DocumentsContract.Document.COLUMN_DISPLAY_NAME} ASC"
+            null
          )?.use { cursor ->
             while (cursor.moveToNext()) {
                val id = cursor.getString(0)
@@ -58,7 +58,7 @@ class WearPusher @Inject constructor(
          }
       }
 
-      RandomLists(lists)
+      RandomLists(lists.sortedBy { it.name })
    }
 
    private fun readFile(parentUri: Uri, id: String): List<String> {
