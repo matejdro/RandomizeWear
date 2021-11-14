@@ -14,11 +14,13 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 class MobileModule {
    @Provides
+   @Singleton
    fun provideSettingsDataStore(@ApplicationContext context: Context): DataStore<Settings> {
       return DataStoreFactory.create(SettingsSerializer, produceFile = { context.dataStoreFile("settings.pb") })
    }
