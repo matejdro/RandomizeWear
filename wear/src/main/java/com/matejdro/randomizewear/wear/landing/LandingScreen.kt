@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -43,6 +44,7 @@ import com.matejdro.randomizewear.wear.Screen
 import com.matejdro.randomizewear.wear.theme.PreviewTheme
 import com.matejdro.randomizewear.wear.util.AutoResizeText
 import com.matejdro.randomizewear.wear.util.FontSizeRange
+import com.matejdro.randomizewear.wear.util.HandleRotaryEvents
 
 @Composable
 private fun LandingScreenUi(
@@ -54,8 +56,13 @@ private fun LandingScreenUi(
 ) {
    BackHandler(enabled = displayedPopupText != null) { closePopup() }
 
+   val state = rememberLazyListState()
+
+   HandleRotaryEvents(scrollState = state)
+
    LazyColumn(
       Modifier.fillMaxSize(),
+      state = state,
       verticalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterVertically),
       horizontalAlignment = Alignment.CenterHorizontally,
       contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)

@@ -69,9 +69,6 @@ fun RotaryEventHandlerSetup(rotaryEventDispatcher: RotaryEventDispatcher) {
    }
 }
 
-/**
- * Register a [ScrollableState] to [LocalRotaryEventDispatcher]
- */
 @Composable
 fun RotaryEventCallback(callback: (Float) -> Unit) {
    val dispatcher = LocalRotaryEventDispatcher.current
@@ -81,6 +78,22 @@ fun RotaryEventCallback(callback: (Float) -> Unit) {
 
       this.onDispose {
          dispatcher.removeCallback(callback)
+      }
+   }
+}
+
+/**
+ * Register a [ScrollableState] to [LocalRotaryEventDispatcher]
+ */
+@Composable
+fun HandleRotaryEvents(scrollState: ScrollableState) {
+   val scope = rememberCoroutineScope()
+
+   RotaryEventCallback { scrollAmount: Float ->
+      scope.launch {
+         scrollState.scroll {
+            scrollBy(scrollAmount)
+         }
       }
    }
 }
