@@ -2,6 +2,7 @@ package com.matejdro.randomizewear.wear
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -40,6 +41,10 @@ class MainActivity : ComponentActivity() {
             TimeText()
          }) {
             val navController = rememberSwipeDismissableNavController()
+            BackHandler {
+               navController.popBackStack()
+            }
+
             SwipeDismissableNavHost(navController = navController, startDestination = Screen.Landing.route) {
                composable(Screen.Landing.route) {
                   LandingScreen(navController)
