@@ -1,17 +1,10 @@
 package com.matejdro.randomizewear.wear.util
 
-import android.view.MotionEvent
-import android.view.ViewConfiguration
 import androidx.compose.foundation.gestures.ScrollableState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.staticCompositionLocalOf
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalView
-import androidx.core.view.InputDeviceCompat
-import androidx.core.view.MotionEventCompat
-import androidx.core.view.ViewConfigurationCompat
 import kotlinx.coroutines.launch
 
 // Adapted from https://github.com/joreilly/PeopleInSpace/blob/main/wearApp/src/main/java/com/surrus/peopleinspace/RotaryEventDispatcher.kt
@@ -36,36 +29,8 @@ class RotaryEventDispatcher() {
    }
 
    fun onRotate(delta: Float) {
+      println("On Rotate ${callbacks.size}")
       callbacks.forEach { it(delta) }
-   }
-}
-
-/**
- * Custom rotary event setup (Currently, Column / LazyColumn doesn't handle rotary event.)
- * Refer to https://developer.android.com/training/wearables/user-input/rotary-input
- */
-@Composable
-fun RotaryEventHandlerSetup(rotaryEventDispatcher: RotaryEventDispatcher) {
-   val view = LocalView.current
-   val context = LocalContext.current
-   val scope = rememberCoroutineScope()
-
-   view.requestFocus()
-   view.setOnGenericMotionListener { _, event ->
-      if (event?.action != MotionEvent.ACTION_SCROLL ||
-         !event.isFromSource(InputDeviceCompat.SOURCE_ROTARY_ENCODER)
-      ) {
-         return@setOnGenericMotionListener false
-      }
-
-      val delta = -event.getAxisValue(MotionEventCompat.AXIS_SCROLL) *
-              ViewConfigurationCompat.getScaledVerticalScrollFactor(
-                 ViewConfiguration.get(context), context
-              )
-      scope.launch {
-         rotaryEventDispatcher.onRotate(delta)
-      }
-      true
    }
 }
 
