@@ -65,6 +65,6 @@ class WearPusher @Inject constructor(
       val documentId = DocumentsContract.buildDocumentUriUsingTree(parentUri, id)
       @Suppress("BlockingMethodInNonBlockingContext")
       return contentResolver.openInputStream(documentId)!!.bufferedReader().readLines()
-         .filter { it.isNotBlank() }
+         .filter { it.isNotBlank() && !it.trim().startsWith("//") }
    }
 }
