@@ -21,7 +21,7 @@ class RandomListsRepository @Inject constructor(dataClient: DataClient, cacheDat
    @Suppress("BlockingMethodInNonBlockingContext")
    @OptIn(DelicateCoroutinesApi::class)
    val lists = dataClient.getDataItemFlow(Uri.parse("wear://*${CommPaths.RANDOM_LISTS}"))
-      .map { dataItem -> dataItem?.let { RandomLists.ADAPTER.decode(it.data) } ?: RandomLists() }
+      .map { dataItem -> dataItem?.data?.let { RandomLists.ADAPTER.decode(it) } ?: RandomLists() }
       .onEach { newLists ->
          cacheDataStore.updateData { newLists }
       }

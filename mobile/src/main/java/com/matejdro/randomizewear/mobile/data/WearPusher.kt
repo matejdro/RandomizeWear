@@ -1,5 +1,6 @@
 package com.matejdro.randomizewear.mobile.data
 
+import android.annotation.SuppressLint
 import android.content.ContentResolver
 import android.net.Uri
 import android.provider.DocumentsContract
@@ -58,13 +59,17 @@ class WearPusher @Inject constructor(
          }
       }
 
+      println("lists $lists")
+
       RandomLists(lists.sortedBy { it.name })
    }
 
    private fun readFile(parentUri: Uri, id: String): List<String> {
       val documentId = DocumentsContract.buildDocumentUriUsingTree(parentUri, id)
-      @Suppress("BlockingMethodInNonBlockingContext")
-      return contentResolver.openInputStream(documentId)!!.bufferedReader().readLines()
-         .filter { it.isNotBlank() && !it.trim().startsWith("//") }
+      @Suppress("BlockingMethodInNonBlockingContext", "Recycle")
+      return contentResolver.openInputStream(documentId)!!.bufferedReader().use { reader ->
+         reader.readLines()
+            .filter { it.isNotBlank() && !it.trim().startsWith("//") }
+      }
    }
 }
