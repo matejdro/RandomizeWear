@@ -5,12 +5,12 @@ plugins {
 }
 
 android {
-    compileSdk = 33
+    compileSdk = 34
     namespace = "com.matejdro.randomizewear.common"
 
     defaultConfig {
         minSdk = 26
-        targetSdk = 31
+        targetSdk = 34
     }
 
     buildFeatures {
