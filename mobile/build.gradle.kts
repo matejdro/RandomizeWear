@@ -2,13 +2,14 @@ plugins {
    id("com.android.application")
    kotlin("android")
    kotlin("kapt")
+   id("org.jetbrains.kotlin.plugin.compose")
    id("dagger.hilt.android.plugin")
    id("com.squareup.wire")
    id("kotlinova")
 }
 
 android {
-   compileSdk = 34
+   compileSdk = 35
    namespace = "com.matejdro.randomizewear"
 
    defaultConfig {
@@ -18,14 +19,6 @@ android {
 
       versionCode = 1
       versionName = "1.0"
-   }
-
-   buildFeatures {
-      compose = true
-   }
-
-   composeOptions {
-      kotlinCompilerExtensionVersion = libs.versions.androidx.compose.compiler.get()
    }
 
    compileOptions {
